@@ -1,0 +1,13 @@
+import fs from "fs";
+import path from "path";
+import * as yamlLoader from "yaml";
+
+export const loadSwaggerFile = () => {
+  const swaggerFile = fs.readFileSync(
+    path.join(__dirname, "./doc.yml"),
+    "utf8",
+  );
+  const swaggerDocument = yamlLoader.parse(swaggerFile);
+
+  return swaggerDocument;
+};

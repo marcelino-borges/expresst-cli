@@ -1,0 +1,45 @@
+import express, { Request, Response } from "express";
+import cors from "cors";
+import helmet from "helmet";
+import swaggerUi from "swagger-ui-express";
+import { loadSwaggerFile } from "@/config/swagger/loader";
+
+const startTime = Date.now();
+
+const canReadEnv = String(process.env.SERVER_TIMEOUT);
+
+if (canReadEnv) {
+  console.log(".ENV verified!");
+
+  const PORT = process.env.PORT ?? 5000;
+  const HOST = String(process.env.HOST);
+
+  const app = express();
+
+  const publicCors = cors();
+
+  const swaggerDocument = loadSwaggerFile();
+
+  app.use(publicCors);
+  app.use(helmet());
+  app.use(express.urlencoded({ extended: false }));
+  app.use(express.json());
+  app.options("*", publicCors);
+
+  app.get("/health-check", publicCors, (_: Request, res: Response) => {
+    res.status(200).json({ message: "API running" });
+  });
+
+  app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+  const server = app.listen(Number(PORT), HOST, () => {
+    const startDuration = Date.now() - startTime;
+    console.log(`API listening on port ${PORT}. Took ${startDuration}ms to start.`);
+  });
+
+  const TIMEOUT = parseInt(process.env.SERVER_TIMEOUT ?? "3000", 10);
+
+  server.timeout = TIMEOUT;
+} else {
+  console.error(".env not available or SERVER_TIMEOUT doesn't exist in .env. API not running.");
+}

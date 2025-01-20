@@ -1,0 +1,30 @@
+{
+  "name": "rest-express-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "bin": {
+    "rest-express-cli": "dist/index.js"
+  },
+  "scripts": {
+    "help:main": "tsx src/help-tables/main-commands/index.ts",
+    "help:generate": "tsx src/help-tables/generate-commands/index.ts",
+    "generate:init": "tsx src/commands/generate/index.ts",
+    "build": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.2.3",
+    "chalk": "^5.4.1",
+    "console-table-printer": "^2.12.1",
+    "tsx": "^4.19.2"
+  }
+}

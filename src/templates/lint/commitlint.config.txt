@@ -1,0 +1,17 @@
+const LEVEL = {
+  DISABLE: 0,
+  WARNING: 1,
+  ERROR: 2,
+};
+
+const APPLICABLE = {
+  ALWAYS: "always",
+  NEVER: "never",
+};
+
+module.exports = {
+  extends: ["@commitlint/config-conventional"],
+  rules: {
+    "header-max-length": [LEVEL.ERROR, APPLICABLE.ALWAYS, 200],
+  },
+};

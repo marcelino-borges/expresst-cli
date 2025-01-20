@@ -1,0 +1,153 @@
+openapi: 3.0.3
+info:
+  title: My API
+  description: Describe what is the goal of this API
+  contact:
+    name: Who
+    email: your.email@your-organization.com
+  version: 1.0.11
+servers:
+  - url: http://localhost:3000/api/v1
+    description: Local enviroment
+tags:
+  - name: Checks
+    description: All endpoints used to analyze the API
+  - name: Example
+    description: Describe anything we need to know about this tag
+paths:
+  /health-check:
+    get:
+        tags:
+          - Checks
+        summary: Returns 200 OK if the API is running
+        operationId: healthCheck
+        responses:
+        "200":
+          description: Sucess
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppResultSuccess"
+        "400":
+          description: Operation not succeeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppResultFail"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppResultUnauthorized"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppResultInternalError"
+  /example:
+    get:
+        tags:
+          - Example
+        summary: Summarize what your endpoint does
+        description: Describe more in a more detailed way what it does or specificities
+        operationId: yourControlerNameMaybe
+        parameters:
+          - name: exampleParam
+            in: path
+            description: Describe what it's for and inform where we should put it into (path, query, body)
+            required: true
+        responses:
+        "200":
+          description: Sucess
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppResultSuccess"
+        "400":
+          description: Operation not succeeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppResultFail"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppResultUnauthorized"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppResultInternalError"
+components:
+  schemas:
+    AppResultSuccess:
+      type: object
+      properties:
+        messages:
+          type: array
+          format: string
+          example: ["What happened"]
+        data:
+          type: object
+          nullable: true
+        statusCode:
+          type: integer
+          format: int64
+          example: 200
+    AppResultFail:
+      type: object
+      properties:
+        messages:
+          type: array
+          format: string
+          example: ["What happened"]
+        data:
+          type: object
+          nullable: true
+          example: null
+        statusCode:
+          type: integer
+          format: int64
+          example: 400
+    AppResultInternalError:
+      type: object
+      properties:
+        messages:
+          type: array
+          format: string
+          example: ["Internal server error"]
+        data:
+          type: object
+          nullable: true
+          example: null
+        statusCode:
+          type: integer
+          format: int64
+          example: 500
+    AppResultUnauthorized:
+      type: object
+      properties:
+        messages:
+          type: array
+          format: string
+          example: ["What happened"]
+        data:
+          type: object
+          nullable: true
+          example: null
+        statusCode:
+          type: integer
+          format: int64
+          example: 401
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
