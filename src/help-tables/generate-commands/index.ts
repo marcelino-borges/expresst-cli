@@ -1,5 +1,7 @@
-import { CommandInfo } from "../../types";
 import chalk from "chalk";
+
+import { CommandInfo } from "@/types";
+
 import { getHelpCommandsTable } from "..";
 
 const generateOptions: CommandInfo[] = [

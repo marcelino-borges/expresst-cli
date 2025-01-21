@@ -3,7 +3,8 @@ import {
   promptDirOrFile,
   promptFunctionName,
   promptsUseIndexPattern,
-} from "../../../utils/prompters";
+} from "@/utils/prompters";
+
 import { generateController } from "./generator";
 
 const CONTEXT = "Controller";

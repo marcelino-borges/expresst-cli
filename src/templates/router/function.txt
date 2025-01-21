@@ -1,0 +1,3 @@
+router.{{ROUTE_METHOD}}("/{{ROUTE_PATH}}", (_req, res) => {
+  res.status(500).json({ message: "Not implemented" });
+})

@@ -1,4 +1,4 @@
-import { TEMPLATES_PATH, TEMPLATES_PLACEHOLDERS } from "../../../constants";
+import { CONTEXTS, TEMPLATES_PATH, TEMPLATES_PLACEHOLDERS } from "@/constants";
 import {
   concatenateToContent,
   createDirectoryIfNotExists,
@@ -7,9 +7,8 @@ import {
   replacePlaceholdersByValue,
   resolvePath,
   saveFile,
-} from "../../../utils/files";
-import { log } from "../../../utils/logs";
-import { CONTEXTS } from "../init/constants";
+} from "@/utils/files";
+import { log } from "@/utils/logs";
 
 const getFunctionTemplate = () => {
   return getLibFileContent(TEMPLATES_PATH.serviceFunction.originalPath);
@@ -18,7 +17,7 @@ const getFunctionTemplate = () => {
 const fillServiceNameIntoContent = (content: string, serviceName: string) => {
   return replacePlaceholdersByValue(
     content,
-    TEMPLATES_PLACEHOLDERS.serviceName,
+    TEMPLATES_PLACEHOLDERS.functionName,
     serviceName,
   );
 };
@@ -32,7 +31,7 @@ export const generateService = async (
 
   const serviceDestinationDir = resolvePath(
     cwdPath,
-    TEMPLATES_PATH.serviceWrapper.destinationPath,
+    TEMPLATES_PATH.serviceFunction.destinationPath,
     serviceFile,
   );
 

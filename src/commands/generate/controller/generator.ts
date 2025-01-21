@@ -1,4 +1,4 @@
-import { TEMPLATES_PATH, TEMPLATES_PLACEHOLDERS } from "../../../constants";
+import { CONTEXTS, TEMPLATES_PATH, TEMPLATES_PLACEHOLDERS } from "@/constants";
 import {
   concatenateToContent,
   createDirectoryIfNotExists,
@@ -7,9 +7,8 @@ import {
   replacePlaceholdersByValue,
   resolvePath,
   saveFile,
-} from "../../../utils/files";
-import { log } from "../../../utils/logs";
-import { CONTEXTS } from "../init/constants";
+} from "@/utils/files";
+import { log } from "@/utils/logs";
 
 const getControllerFunctionTemplate = () => {
   return getLibFileContent(TEMPLATES_PATH.controllerFunction.originalPath);
@@ -73,21 +72,18 @@ export const generateController = async (
         existingController,
         functionTemplate,
       );
-      updatedModuleContent = fillControllerNameIntoContent(
-        updatedModuleContent,
-        controllerName,
-      );
     } else {
       updatedModuleContent = getWrapperTemplate();
       updatedModuleContent = fillControllerFunctionIntoWrapper(
         updatedModuleContent,
         functionTemplate,
       );
-      updatedModuleContent = fillControllerNameIntoContent(
-        updatedModuleContent,
-        controllerName,
-      );
     }
+
+    updatedModuleContent = fillControllerNameIntoContent(
+      updatedModuleContent,
+      controllerName,
+    );
 
     await saveFile(controllerDestinationFile, updatedModuleContent);
   } catch (error) {

@@ -1,11 +1,10 @@
-import fs from "fs";
 import { spawn } from "child_process";
+import fs from "fs";
 
-import { TEMPLATES_PATH, TEMPLATES_PLACEHOLDERS } from "../../../constants";
-import { yellow } from "../../../utils/chalk";
-import { log } from "../../../utils/logs";
-import { GenerateInitializationPreferences } from "../../../types";
-import { CONTEXTS } from "./constants";
+import { CONTEXTS, TEMPLATES_PATH, TEMPLATES_PLACEHOLDERS } from "@/constants";
+import { GenerateInitializationPreferences } from "@/types";
+import { yellow } from "@/utils/chalk";
+import { log } from "@/utils/logs";
 
 const PROD_DEPENDENCIES = [
   "express",

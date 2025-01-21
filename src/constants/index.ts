@@ -7,6 +7,24 @@ export const GENERATE_PATH = path.resolve(
   "../commands/generate/init/index.ts",
 );
 
+export const CONTEXTS = {
+  generate: "generate",
+  init: "init",
+  prodDependencies: "production dependencies",
+  devDependencies: "dev dependencies",
+  npmInit: "npm init",
+  commitLint: "commitlint",
+  swagger: "swagger",
+  tsconfig: "tsconfig",
+  husky: "husky",
+  git: "git",
+  prompter: "prompter",
+  projectName: "projectName",
+  controller: "controller",
+  service: "service",
+  useCase: "useCase",
+};
+
 export const TEMPLATES_PATH = {
   serverEntry: {
     originalPath: path.resolve(
@@ -67,13 +85,21 @@ export const TEMPLATES_PATH = {
     ),
     destinationPath: "./src/controllers",
   },
-  serviceWrapper: {
-    originalPath: path.resolve(__dirname, "../templates/service/wrapper.txt"),
-    destinationPath: "./src/services",
-  },
   serviceFunction: {
     originalPath: path.resolve(__dirname, "../templates/service/function.txt"),
     destinationPath: "./src/services",
+  },
+  useCaseFunction: {
+    originalPath: path.resolve(__dirname, "../templates/use-case/function.txt"),
+    destinationPath: "./src/use-cases",
+  },
+  routerWrapper: {
+    originalPath: path.resolve(__dirname, "../templates/router/wrapper.txt"),
+    destinationPath: "./src/routers",
+  },
+  routerImplementation: {
+    originalPath: path.resolve(__dirname, "../templates/router/function.txt"),
+    destinationPath: "./src/routers",
   },
 };
 
@@ -81,7 +107,10 @@ export const TEMPLATES_PLACEHOLDERS = {
   projectName: "{{PROJECT_NAME}}",
   controllerName: "{{CONTROLLER_NAME}}",
   controllerFunction: "{{CONTROLLER_FUNCTION}}",
-  serviceName: "{{SERVICE_NAME}}",
+  functionName: "{{FUNCTION_NAME}}",
+  routeImplementation: "{{ROUTE_IMPLEMENTATION}}",
+  routeMethod: "{{ROUTE_METHOD}}",
+  routePath: "{{ROUTE_PATH}}",
 };
 
 export const LIB_PROMPT_NAME = red("rest-express-cli");

@@ -5,17 +5,17 @@ import {
   promptsUseIndexPattern,
 } from "@/utils/prompters";
 
-import { generateService } from "./generator";
+import { generateUseCase } from "./generator";
 
-const CONTEXT = "Service";
+const CONTEXT = "Repository";
 
 const getUserPreferences = async () => {
   try {
     const useIndex = await promptsUseIndexPattern();
-    const controllerName = await promptFunctionName(CONTEXT);
-    const controllerFile = await promptDirOrFile(CONTEXT, useIndex);
+    const useCaseName = await promptFunctionName(CONTEXT);
+    const useCaseFile = await promptDirOrFile(CONTEXT, useIndex);
 
-    generateService(controllerFile, controllerName, useIndex);
+    generateUseCase(useCaseFile, useCaseName, useIndex);
   } catch (error) {
     handleForceCloseIfAny(error);
   }

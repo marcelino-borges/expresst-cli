@@ -1,12 +1,13 @@
 import { input } from "@inquirer/prompts";
 
-import { GenerateInitializationPreferences } from "../../../types";
-import { yellow } from "../../../utils/chalk";
+import { GenerateInitializationPreferences } from "@/types";
+import { yellow } from "@/utils/chalk";
 import {
   handleForceCloseIfAny,
   promptsUseTool,
   showUserAnswer,
-} from "../../../utils/prompters";
+} from "@/utils/prompters";
+
 import { generateInitialization } from "./generator";
 
 const getUserPreferences = async () => {
