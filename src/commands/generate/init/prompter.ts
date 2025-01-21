@@ -1,18 +1,13 @@
 import { input } from "@inquirer/prompts";
+
+import { GenerateInitializationPreferences } from "../../../types";
 import { yellow } from "../../../utils/chalk";
 import {
   handleForceCloseIfAny,
+  promptsUseTool,
   showUserAnswer,
 } from "../../../utils/prompters";
-import { GenerateInitializationPreferences } from "../../../types";
-import { generateInitialization } from ".";
-
-const askUseTool = async (tool: string) => {
-  return await input({
-    message: `Use ${yellow(tool)} (y/n):`,
-    default: "y",
-  });
-};
+import { generateInitialization } from "./generator";
 
 const getUserPreferences = async () => {
   try {
@@ -23,22 +18,22 @@ const getUserPreferences = async () => {
 
     showUserAnswer("Project name", projectName);
 
-    const initGit = await askUseTool("Git");
+    const initGit = await promptsUseTool("Git");
     showUserAnswer("Use Git?", initGit);
     const useGit = initGit === "y";
 
     let useHusky = true;
 
     if (useGit) {
-      const huskyAnswer = await askUseTool("Husky");
+      const huskyAnswer = await promptsUseTool("Husky");
       showUserAnswer("Use Husky?", huskyAnswer);
       useHusky = huskyAnswer === "y";
     }
 
-    const useCommitlint = await askUseTool("Commitlint");
+    const useCommitlint = await promptsUseTool("Commitlint");
     showUserAnswer("Use Commitlint?", useCommitlint);
 
-    const useSwagger = await askUseTool("Swagger");
+    const useSwagger = await promptsUseTool("Swagger");
     showUserAnswer("Use Swagger?", useSwagger);
 
     const prefs: GenerateInitializationPreferences = {

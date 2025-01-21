@@ -11,4 +11,6 @@ export const CONTEXTS = {
   git: "git",
   prompter: "prompter",
   projectName: "projectName",
+  controller: "controller",
+  service: "service",
 };

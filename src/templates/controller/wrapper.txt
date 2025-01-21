@@ -1,0 +1,3 @@
+import { Request, Response } from "express";
+
+{{CONTROLLER_FUNCTION}}

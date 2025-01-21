@@ -333,7 +333,6 @@ export const generateInitialization = (
   prefs: GenerateInitializationPreferences,
 ) => {
   const cwdPath = process.cwd();
-  console.log("cwdPath", cwdPath);
 
   try {
     makeSurePackageJsonExists(cwdPath, prefs.projectName);

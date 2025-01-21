@@ -1,5 +1,5 @@
 {
-  "name": "rest-express-cli",
+  "name": "express-rest-cli",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -18,13 +18,16 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.10.7",
-    "prettier": "^3.4.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3"
   },
   "dependencies": {
     "@inquirer/prompts": "^7.2.3",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.1",
     "chalk": "^5.4.1",
     "console-table-printer": "^2.12.1",
+    "prettier": "^3.4.2",
     "tsx": "^4.19.2"
   }
 }

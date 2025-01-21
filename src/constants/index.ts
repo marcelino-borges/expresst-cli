@@ -1,4 +1,5 @@
 import path from "path";
+
 import { red } from "../utils/chalk";
 
 export const GENERATE_PATH = path.resolve(
@@ -52,10 +53,35 @@ export const TEMPLATES_PATH = {
     originalPath: path.resolve(__dirname, "../templates/git/gitignore.txt"),
     destinationPath: "/.gitignore",
   },
+  controllerWrapper: {
+    originalPath: path.resolve(
+      __dirname,
+      "../templates/controller/wrapper.txt",
+    ),
+    destinationPath: "./src/controllers",
+  },
+  controllerFunction: {
+    originalPath: path.resolve(
+      __dirname,
+      "../templates/controller/function.txt",
+    ),
+    destinationPath: "./src/controllers",
+  },
+  serviceWrapper: {
+    originalPath: path.resolve(__dirname, "../templates/service/wrapper.txt"),
+    destinationPath: "./src/services",
+  },
+  serviceFunction: {
+    originalPath: path.resolve(__dirname, "../templates/service/function.txt"),
+    destinationPath: "./src/services",
+  },
 };
 
 export const TEMPLATES_PLACEHOLDERS = {
   projectName: "{{PROJECT_NAME}}",
+  controllerName: "{{CONTROLLER_NAME}}",
+  controllerFunction: "{{CONTROLLER_FUNCTION}}",
+  serviceName: "{{SERVICE_NAME}}",
 };
 
 export const LIB_PROMPT_NAME = red("rest-express-cli");

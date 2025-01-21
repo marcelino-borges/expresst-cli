@@ -1,0 +1,3 @@
+export const {{SERVICE_NAME}} = () => {
+  console.log("Hello from {{SERVICE_NAME}}!");
+};
