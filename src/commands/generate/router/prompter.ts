@@ -60,7 +60,7 @@ const promptPath = async () => {
   return path;
 };
 
-const getUserPreferences = async () => {
+export const promptGenerateRouter = async () => {
   try {
     const useIndex = await promptsUseIndexPattern();
     const routerFile = await promptDirOrFile(CONTEXT, useIndex);
@@ -72,5 +72,3 @@ const getUserPreferences = async () => {
     handleForceCloseIfAny(error);
   }
 };
-
-getUserPreferences();

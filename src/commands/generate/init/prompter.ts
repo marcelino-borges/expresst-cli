@@ -9,7 +9,7 @@ import {
 } from "../../../utils/prompters";
 import { generateInitialization } from "./generator";
 
-const getUserPreferences = async () => {
+export const promptGenerateInit = async () => {
   try {
     const projectName = await input({
       message: `What's the ${yellow("project name")}`,
@@ -49,5 +49,3 @@ const getUserPreferences = async () => {
     handleForceCloseIfAny(error);
   }
 };
-
-getUserPreferences();

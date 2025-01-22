@@ -1,5 +1,7 @@
 import path from "path";
 
+import { promptGenerateCommand } from "../commands/generate/prompter";
+import { CommandInfo } from "../types";
 import { red } from "../utils/chalk";
 
 export const GENERATE_PATH = path.resolve(
@@ -7,7 +9,29 @@ export const GENERATE_PATH = path.resolve(
   "../commands/generate/init/index.ts",
 );
 
+export const MAIN_COMMANDS: CommandInfo[] = [
+  {
+    command: "Generate",
+    alias: "generate (g)",
+    description: "Generates a new resource",
+    promptCallback: promptGenerateCommand,
+  },
+  {
+    command: "Format",
+    alias: "format (f)",
+    description: "Format all files with Prettier",
+    promptCallback: () => {},
+  },
+  {
+    command: "Help",
+    alias: "help",
+    description: "See the options available by Expresst CLI",
+    promptCallback: () => {},
+  },
+];
+
 export const CONTEXTS = {
+  chooseMainCommand: "mainCommandChoice",
   generate: "generate",
   init: "init",
   prodDependencies: "production dependencies",

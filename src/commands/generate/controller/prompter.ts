@@ -8,7 +8,7 @@ import { generateController } from "./generator";
 
 const CONTEXT = "Controller";
 
-const getUserPreferences = async () => {
+export const promptGenerateController = async () => {
   try {
     const useIndex = await promptsUseIndexPattern();
     const controllerName = await promptFunctionName(CONTEXT);
@@ -19,5 +19,3 @@ const getUserPreferences = async () => {
     handleForceCloseIfAny(error);
   }
 };
-
-getUserPreferences();

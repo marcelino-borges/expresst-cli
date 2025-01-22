@@ -8,7 +8,7 @@ import { generateUseCase } from "./generator";
 
 const CONTEXT = "Repository";
 
-const getUserPreferences = async () => {
+export const promptGenerateRepository = async () => {
   try {
     const useIndex = await promptsUseIndexPattern();
     const useCaseName = await promptFunctionName(CONTEXT);
@@ -19,5 +19,3 @@ const getUserPreferences = async () => {
     handleForceCloseIfAny(error);
   }
 };
-
-getUserPreferences();

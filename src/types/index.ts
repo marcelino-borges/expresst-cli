@@ -2,6 +2,7 @@ export interface CommandInfo {
   command: string;
   alias: string;
   description: string;
+  promptCallback: () => void;
 }
 
 export interface GenerateInitializationPreferences {

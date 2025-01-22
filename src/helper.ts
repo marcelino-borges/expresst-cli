@@ -1,18 +1,11 @@
-import { CommandInfo } from "../../types";
 import chalk from "chalk";
-import { getHelpCommandsTable } from "..";
 
-const mainCommands: CommandInfo[] = [
-  {
-    command: "Generate",
-    alias: "g",
-    description: "Generates a new resource",
-  },
-];
+import { MAIN_COMMANDS } from "./constants";
+import { getHelpCommandsTable } from "./help-tables";
 
-const table = getHelpCommandsTable().addRows(mainCommands);
+const table = getHelpCommandsTable().addRows(MAIN_COMMANDS);
 
-const showCommands = () => {
+export const showMainCommands = () => {
   console.log(chalk.red("Express API CLI Main commands"), "\n");
   console.log(chalk.gray("See our MAIN commands below:"));
   table.printTable();
@@ -22,5 +15,3 @@ const showCommands = () => {
     chalk.gray("for more information about an specific command"),
   );
 };
-
-showCommands();

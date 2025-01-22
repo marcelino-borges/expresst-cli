@@ -8,7 +8,7 @@ import { generateService } from "./generator";
 
 const CONTEXT = "Service";
 
-const getUserPreferences = async () => {
+export const promptGenerateService = async () => {
   try {
     const useIndex = await promptsUseIndexPattern();
     const controllerName = await promptFunctionName(CONTEXT);
@@ -19,5 +19,3 @@ const getUserPreferences = async () => {
     handleForceCloseIfAny(error);
   }
 };
-
-getUserPreferences();

@@ -10,8 +10,8 @@
     "help:main": "tsx src/help-tables/main-commands/index.ts",
     "help:generate": "tsx src/help-tables/generate-commands/index.ts",
     "generate:init": "tsx src/commands/generate/index.ts",
-    "build": "tsc --watch",
-    "start": "node dist/index.js"
+    "start": "tsx src/index.ts",
+    "build": "tsc --watch"
   },
   "keywords": [],
   "author": "",
