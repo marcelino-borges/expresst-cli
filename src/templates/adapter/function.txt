@@ -1,0 +1,5 @@
+export const {{FUNCTION_NAME}} = (input: { firstName: string, lastName: string }) => {
+  return { 
+    name: `${input.firstName} ${input.lastName}` 
+  };
+};

@@ -4,7 +4,6 @@ import { select } from "@inquirer/prompts";
 import { MAIN_COMMANDS } from "./constants";
 import { CONTEXTS } from "./constants";
 import { yellow } from "./utils/chalk";
-import { LibError } from "./utils/error/lib-error";
 import { log } from "./utils/logs";
 import { handleForceCloseIfAny, showUserAnswer } from "./utils/prompters";
 import { getLogo } from "./utils/strings";

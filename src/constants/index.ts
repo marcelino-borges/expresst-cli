@@ -47,6 +47,8 @@ export const CONTEXTS = {
   controller: "controller",
   service: "service",
   useCase: "useCase",
+  adapter: "adapter",
+  middleware: "middleware",
 };
 
 export const TEMPLATES_PATH = {
@@ -109,6 +111,20 @@ export const TEMPLATES_PATH = {
     ),
     destinationPath: "./src/controllers",
   },
+  middlewareWrapper: {
+    originalPath: path.resolve(
+      __dirname,
+      "../templates/middleware/wrapper.txt",
+    ),
+    destinationPath: "./src/middlewares",
+  },
+  middlewareFunction: {
+    originalPath: path.resolve(
+      __dirname,
+      "../templates/middleware/function.txt",
+    ),
+    destinationPath: "./src/middlewares",
+  },
   serviceFunction: {
     originalPath: path.resolve(__dirname, "../templates/service/function.txt"),
     destinationPath: "./src/services",
@@ -125,6 +141,10 @@ export const TEMPLATES_PATH = {
     originalPath: path.resolve(__dirname, "../templates/router/function.txt"),
     destinationPath: "./src/routers",
   },
+  adapterFunction: {
+    originalPath: path.resolve(__dirname, "../templates/adapter/function.txt"),
+    destinationPath: "./src/adapters",
+  },
 };
 
 export const TEMPLATES_PLACEHOLDERS = {
@@ -135,6 +155,7 @@ export const TEMPLATES_PLACEHOLDERS = {
   routeImplementation: "{{ROUTE_IMPLEMENTATION}}",
   routeMethod: "{{ROUTE_METHOD}}",
   routePath: "{{ROUTE_PATH}}",
+  middlewareFunction: "{{MIDDLEWARE_FUNCTION}}",
 };
 
 export const LIB_PROMPT_NAME = red("rest-express-cli");

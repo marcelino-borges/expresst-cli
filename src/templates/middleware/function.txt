@@ -1,0 +1,4 @@
+export const {{FUNCTION_NAME}} = (req: Request, res: Response, next: NextFunction) => {
+  console.log("Hello from your {{FUNCTION_NAME}} middleware");  
+  next();
+};

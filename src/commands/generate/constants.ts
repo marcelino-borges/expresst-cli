@@ -1,6 +1,8 @@
 import { CommandInfo } from "../../types";
+import { promptGenerateAdapter } from "./adapter/prompter";
 import { promptGenerateController } from "./controller/prompter";
 import { promptGenerateInit } from "./init/prompter";
+import { promptGenerateMiddleware } from "./middleware/prompter";
 import { promptGenerateRepository } from "./repository/prompter";
 import { promptGenerateRouter } from "./router/prompter";
 import { promptGenerateService } from "./service/prompter";
@@ -9,7 +11,7 @@ import { promptGenerateUseCase } from "./use-case/prompter";
 export const GENERATE_COMMANDS: CommandInfo[] = [
   {
     command: "Initialize",
-    alias: "init",
+    alias: "i",
     description: "Generates a new Express entry file",
     promptCallback: promptGenerateInit,
   },
@@ -39,7 +41,7 @@ export const GENERATE_COMMANDS: CommandInfo[] = [
   },
   {
     command: "Use Case",
-    alias: "us",
+    alias: "u",
     description: "Generates an use-case resource",
     promptCallback: promptGenerateUseCase,
   },
@@ -47,24 +49,21 @@ export const GENERATE_COMMANDS: CommandInfo[] = [
     command: "Adapter",
     alias: "a",
     description: "Generates an adapter resource",
-    promptCallback: () => {},
+    promptCallback: promptGenerateAdapter,
   },
   {
     command: "Middleware",
     alias: "m",
     description: "Generates a middleware resource",
-    promptCallback: () => {},
+    promptCallback: promptGenerateMiddleware,
   },
   {
-    command: "Commitlint",
-    alias: "clint",
-    description: "Setups commitlint in your project",
-    promptCallback: () => {},
-  },
-  {
-    command: "NPM Init",
-    alias: "npm",
-    description: "Runs NPM Init with basic dependencies",
-    promptCallback: () => {},
+    command: "Resource",
+    alias: "r",
+    description:
+      "Generates a full resource, including controller, service, use-case, adapter and repository",
+    promptCallback: () => {
+      console.log("COMMING SOON!");
+    },
   },
 ];
