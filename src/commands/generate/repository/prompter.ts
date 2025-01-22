@@ -3,8 +3,7 @@ import {
   promptDirOrFile,
   promptFunctionName,
   promptsUseIndexPattern,
-} from "@/utils/prompters";
-
+} from "../../../utils/prompters";
 import { generateUseCase } from "./generator";
 
 const CONTEXT = "Repository";

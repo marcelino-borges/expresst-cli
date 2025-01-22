@@ -1,14 +1,13 @@
 import { input, select } from "@inquirer/prompts";
 
-import { yellow } from "@/utils/chalk";
+import { yellow } from "../../../utils/chalk";
 import {
   handleForceCloseIfAny,
   promptDirOrFile,
   promptFunctionName,
   promptsUseIndexPattern,
   showUserAnswer,
-} from "@/utils/prompters";
-
+} from "../../../utils/prompters";
 import { generateRouter } from "./generator";
 
 const CONTEXT = "Router";
@@ -27,7 +26,7 @@ const promptMethodName = async () => {
       },
       {
         name: "PUT",
-        value: "PUT",
+        value: "put",
       },
       {
         name: "DELETE",
@@ -47,11 +46,16 @@ const promptMethodName = async () => {
 };
 
 const promptPath = async () => {
-  const path = await input({
+  let path = await input({
     message: `What's the router's ${yellow("path")}?`,
-    default: "my-path",
+    default: "/my-path/:id",
   });
   showUserAnswer("Path:", path);
+  path = `/${path}`;
+
+  const startingSlashesRegex = /\/{2,}/g;
+
+  path = path.replace(startingSlashesRegex, "/");
 
   return path;
 };

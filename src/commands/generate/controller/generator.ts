@@ -1,14 +1,19 @@
-import { CONTEXTS, TEMPLATES_PATH, TEMPLATES_PLACEHOLDERS } from "@/constants";
+import {
+  CONTEXTS,
+  TEMPLATES_PATH,
+  TEMPLATES_PLACEHOLDERS,
+} from "../../../constants";
 import {
   concatenateToContent,
+  concatenateToContentBeforeExports,
   createDirectoryIfNotExists,
   findExistingFile,
   getLibFileContent,
   replacePlaceholdersByValue,
   resolvePath,
   saveFile,
-} from "@/utils/files";
-import { log } from "@/utils/logs";
+} from "../../../utils/files";
+import { log } from "../../../utils/logs";
 
 const getControllerFunctionTemplate = () => {
   return getLibFileContent(TEMPLATES_PATH.controllerFunction.originalPath);
@@ -68,7 +73,7 @@ export const generateController = async (
     let updatedModuleContent = existingController;
 
     if (existingController) {
-      updatedModuleContent = concatenateToContent(
+      updatedModuleContent = concatenateToContentBeforeExports(
         existingController,
         functionTemplate,
       );

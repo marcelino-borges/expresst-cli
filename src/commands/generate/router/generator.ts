@@ -1,14 +1,19 @@
-import { CONTEXTS, TEMPLATES_PATH, TEMPLATES_PLACEHOLDERS } from "@/constants";
+import {
+  CONTEXTS,
+  TEMPLATES_PATH,
+  TEMPLATES_PLACEHOLDERS,
+} from "../../../constants";
 import {
   concatenateToContent,
+  concatenateToContentBeforeExports,
   createDirectoryIfNotExists,
   findExistingFile,
   getLibFileContent,
   replacePlaceholdersByValue,
   resolvePath,
   saveFile,
-} from "@/utils/files";
-import { log } from "@/utils/logs";
+} from "../../../utils/files";
+import { log } from "../../../utils/logs";
 
 const getRouterImplementationTemplate = () => {
   return getLibFileContent(TEMPLATES_PATH.routerImplementation.originalPath);
@@ -74,8 +79,8 @@ export const generateRouter = async (
     let updatedModuleContent = existingRouter ?? "";
 
     if (existingRouter) {
-      updatedModuleContent = concatenateToContent(
-        existingRouter,
+      updatedModuleContent = concatenateToContentBeforeExports(
+        updatedModuleContent,
         implementationTemplate,
       );
     } else {

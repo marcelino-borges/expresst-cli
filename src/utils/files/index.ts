@@ -118,7 +118,7 @@ export const createDirectoryIfNotExists = (directoryPath: string) => {
 };
 
 /**
- * Concatenates a new content to the end of an existing content.
+ * Concatenates a new string to the end of an existing content.
  * Two new lines are added between the existing content and the new content.
  *
  * @param existingContent Content `string` used to concatenate the new content.
@@ -130,6 +130,32 @@ export const concatenateToContent = (
   newContent: string,
 ) => {
   return `${existingContent.trim()}\n\n${newContent}`;
+};
+
+/**
+ * Concatenates a new string to the end of an existing content, but before the first
+ * export, grouping all exports at the end of the content.
+ * Two new lines are added between the existing content and the new content.
+ *
+ * @param existingContent Content `string` used to concatenate the new content.
+ * @param newContent String that will be concatenated to the end of the existing content.
+ * @returns Updated content string after concatenation.
+ */
+export const concatenateToContentBeforeExports = (
+  existingContent: string,
+  newContent: string,
+) => {
+  const exportRegex = /^export .*/gm;
+
+  const exportMatches = existingContent.match(exportRegex) || [];
+
+  const contentWithoutExports = existingContent.replace(exportRegex, "").trim();
+
+  const updatedContent = `${contentWithoutExports}\n\n${newContent}\n\n${exportMatches.join(
+    "\n\n",
+  )}`;
+
+  return updatedContent;
 };
 
 /**

@@ -1,14 +1,19 @@
-import { CONTEXTS, TEMPLATES_PATH, TEMPLATES_PLACEHOLDERS } from "@/constants";
+import {
+  CONTEXTS,
+  TEMPLATES_PATH,
+  TEMPLATES_PLACEHOLDERS,
+} from "../../../constants";
 import {
   concatenateToContent,
+  concatenateToContentBeforeExports,
   createDirectoryIfNotExists,
   findExistingFile,
   getLibFileContent,
   replacePlaceholdersByValue,
   resolvePath,
   saveFile,
-} from "@/utils/files";
-import { log } from "@/utils/logs";
+} from "../../../utils/files";
+import { log } from "../../../utils/logs";
 
 const getFunctionTemplate = () => {
   return getLibFileContent(TEMPLATES_PATH.useCaseFunction.originalPath);
@@ -49,7 +54,7 @@ export const generateUseCase = async (
 
     let updatedModuleContent = existingUseCase ?? "";
 
-    updatedModuleContent = concatenateToContent(
+    updatedModuleContent = concatenateToContentBeforeExports(
       updatedModuleContent,
       functionTemplate,
     );

@@ -1,7 +1,7 @@
 import { input } from "@inquirer/prompts";
 
-import { gray, yellow } from "@/utils/chalk";
-import { capitalizeFirstLetter } from "@/utils/strings";
+import { gray, yellow } from "../../utils/chalk";
+import { capitalizeFirstLetter } from "../../utils/strings";
 
 /**
  * Handles gracefully the error thrown when a user forces to close

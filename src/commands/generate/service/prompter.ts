@@ -3,8 +3,7 @@ import {
   promptDirOrFile,
   promptFunctionName,
   promptsUseIndexPattern,
-} from "@/utils/prompters";
-
+} from "../../../utils/prompters";
 import { generateService } from "./generator";
 
 const CONTEXT = "Service";
