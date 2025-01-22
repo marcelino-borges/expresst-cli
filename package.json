@@ -1,6 +1,6 @@
 {
   "name": "express-rest-cli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "dist/index.js",
   "bin": {
@@ -11,14 +11,20 @@
     "help:generate": "tsx src/help-tables/generate-commands/index.ts",
     "generate:init": "tsx src/commands/generate/index.ts",
     "start": "tsx src/index.ts",
-    "build": "tsc --watch"
+    "build": "tsc --watch",
+    "version:bump": "tsx src/utils/npm-version/index.ts",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.18.0",
     "@types/node": "^22.10.7",
-    "typescript": "^5.7.3"
+    "husky": "^9.1.7",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.21.0"
   },
   "dependencies": {
     "@inquirer/prompts": "^7.2.3",
