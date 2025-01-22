@@ -1,6 +1,6 @@
 import { Table } from "console-table-printer";
 
-export const getHelpCommandsTable = () =>
+export const getHelpCommandsTable = (disabledColumns?: string[]) =>
   new Table({
     columns: [
       { name: "command", alignment: "left", color: "red", title: "Command" },
@@ -12,4 +12,5 @@ export const getHelpCommandsTable = () =>
         title: "Description",
       },
     ],
+    disabledColumns,
   });

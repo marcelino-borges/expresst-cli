@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 import { select } from "@inquirer/prompts";
 
+import { promptGenerateCommand } from "./commands/generate/prompter";
 import { MAIN_COMMANDS } from "./constants";
 import { CONTEXTS } from "./constants";
+import { showMainCommands } from "./helper";
 import { yellow } from "./utils/chalk";
 import { log } from "./utils/logs";
 import { handleForceCloseIfAny, showUserAnswer } from "./utils/prompters";
@@ -25,7 +27,7 @@ const promptMainCommandName = async () => {
   return commandName;
 };
 
-const start = async () => {
+const executeMainFlow = async (args: string[]) => {
   try {
     const commandName = await promptMainCommandName();
 
@@ -35,7 +37,7 @@ const start = async () => {
 
     if (!command) {
       log.error([CONTEXTS.chooseMainCommand], "Invalid command.");
-      start();
+      start(args);
       return;
     }
 
@@ -45,15 +47,38 @@ const start = async () => {
   }
 };
 
-const getUserPreferences = async () => {
+const start = async (args: string[]) => {
+  const [primaryArg] = args;
+
+  if (!args.length) {
+    executeMainFlow(args);
+    return;
+  }
+
+  if (args.length === 1) {
+    if (primaryArg === "help") {
+      showMainCommands();
+      return;
+    } else if (primaryArg === "generate") {
+      await promptGenerateCommand();
+      return;
+    } else if (primaryArg === "format") {
+      console.log("COMMING SOON!");
+      return;
+    } else {
+      log.error([CONTEXTS.chooseMainCommand], "Invalid command. Try again.");
+      return;
+    }
+  }
+};
+
+const bootstrap = async () => {
   console.log("\n\nWelcome to");
   console.log(getLogo());
 
   const args = process.argv.slice(2);
 
-  console.log("args: ", args);
-
-  start();
+  await start(args);
 };
 
-getUserPreferences();
+bootstrap();

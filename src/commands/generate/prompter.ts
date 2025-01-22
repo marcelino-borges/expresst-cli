@@ -24,7 +24,7 @@ const promptGenerateName = async () => {
   return selection;
 };
 
-export const promptGenerateCommand = async () => {
+export var promptGenerateCommand = async () => {
   try {
     const commandSelected = await promptGenerateName();
 
