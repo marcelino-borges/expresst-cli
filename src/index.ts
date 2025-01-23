@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { select } from "@inquirer/prompts";
 
+import { showGenerateCommands } from "./commands/generate/helper";
 import { promptGenerateCommand } from "./commands/generate/prompter";
 import { MAIN_COMMANDS } from "./constants";
 import { CONTEXTS } from "./constants";
@@ -48,27 +49,30 @@ const executeMainFlow = async (args: string[]) => {
 };
 
 const start = async (args: string[]) => {
-  const [primaryArg] = args;
+  const [primaryArg, ...otherArgs] = args;
 
   if (!args.length) {
     executeMainFlow(args);
     return;
   }
 
-  if (args.length === 1) {
-    if (primaryArg === "help") {
+  if (primaryArg === "help") {
+    if (!otherArgs.length) {
       showMainCommands();
-      return;
-    } else if (primaryArg === "generate") {
-      await promptGenerateCommand();
-      return;
-    } else if (primaryArg === "format") {
-      console.log("COMMING SOON!");
-      return;
-    } else {
-      log.error([CONTEXTS.chooseMainCommand], "Invalid command. Try again.");
-      return;
+    } else if (otherArgs[0] === "generate" || otherArgs[0] === "g") {
+      showGenerateCommands();
     }
+
+    return;
+  } else if (primaryArg === "generate" || primaryArg === "g") {
+    await promptGenerateCommand(otherArgs);
+    return;
+  } else if (primaryArg === "format") {
+    console.log("COMMING SOON!");
+    return;
+  } else {
+    log.error([CONTEXTS.chooseMainCommand], "Invalid command. Try again.");
+    return;
   }
 };
 

@@ -24,12 +24,26 @@ const promptGenerateName = async () => {
   return selection;
 };
 
-export var promptGenerateCommand = async () => {
+export var promptGenerateCommand = async (args?: string[]) => {
   try {
-    const commandSelected = await promptGenerateName();
+    let commandSelected: string | undefined;
+
+    if (!args?.length) {
+      commandSelected = await promptGenerateName();
+    } else {
+      const [secondaryArg] = args;
+      commandSelected = secondaryArg;
+    }
+
+    if (!commandSelected) {
+      log.error([CONTEXTS.generate], "Invalid command");
+      return;
+    }
 
     const selectedCommand = GENERATE_COMMANDS.find(
-      (command) => command.command === commandSelected,
+      (command) =>
+        command.command === commandSelected ||
+        command.alias === commandSelected,
     );
 
     if (!selectedCommand) {

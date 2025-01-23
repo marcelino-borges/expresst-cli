@@ -1,3 +1,4 @@
+import { cyan } from "../../../utils/chalk";
 import {
   handleForceCloseIfAny,
   promptDirOrFile,
@@ -9,6 +10,8 @@ import { generateMiddleware } from "./generator";
 const CONTEXT = "Middleware";
 
 export const promptGenerateMiddleware = async () => {
+  console.log(cyan("Generating a middleware:"));
+
   try {
     const useIndex = await promptsUseIndexPattern();
     const adapterName = await promptFunctionName(CONTEXT);

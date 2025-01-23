@@ -1,10 +1,9 @@
 import { input, select } from "@inquirer/prompts";
 
-import { yellow } from "../../../utils/chalk";
+import { cyan, yellow } from "../../../utils/chalk";
 import {
   handleForceCloseIfAny,
   promptDirOrFile,
-  promptFunctionName,
   promptsUseIndexPattern,
   showUserAnswer,
 } from "../../../utils/prompters";
@@ -61,6 +60,8 @@ const promptPath = async () => {
 };
 
 export const promptGenerateRouter = async () => {
+  console.log(cyan("Generating a router:"));
+
   try {
     const useIndex = await promptsUseIndexPattern();
     const routerFile = await promptDirOrFile(CONTEXT, useIndex);

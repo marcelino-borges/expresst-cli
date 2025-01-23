@@ -49,6 +49,7 @@ export const CONTEXTS = {
   useCase: "useCase",
   adapter: "adapter",
   middleware: "middleware",
+  repository: "repository",
 };
 
 export const TEMPLATES_PATH = {
@@ -132,6 +133,13 @@ export const TEMPLATES_PATH = {
   useCaseFunction: {
     originalPath: path.resolve(__dirname, "../templates/use-case/function.txt"),
     destinationPath: "./src/use-cases",
+  },
+  repositoryFunction: {
+    originalPath: path.resolve(
+      __dirname,
+      "../templates/repository/function.txt",
+    ),
+    destinationPath: "./src/repositories",
   },
   routerWrapper: {
     originalPath: path.resolve(__dirname, "../templates/router/wrapper.txt"),

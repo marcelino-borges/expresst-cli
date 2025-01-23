@@ -1,7 +1,7 @@
 import { input } from "@inquirer/prompts";
 
 import { GenerateInitializationPreferences } from "../../../types";
-import { yellow } from "../../../utils/chalk";
+import { cyan, yellow } from "../../../utils/chalk";
 import {
   handleForceCloseIfAny,
   promptsUseTool,
@@ -10,6 +10,8 @@ import {
 import { generateInitialization } from "./generator";
 
 export const promptGenerateInit = async () => {
+  console.log(cyan("Initializing a project:"));
+
   try {
     const projectName = await input({
       message: `What's the ${yellow("project name")}`,
