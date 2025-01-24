@@ -9,7 +9,8 @@ export async function askVersion() {
   const question = {
     type: "list",
     name: "version",
-    message: "Semantic Version?",
+    message:
+      "What kind of changes are you commiting according to semantic versioning?",
     choices: [
       {
         name: "Major",

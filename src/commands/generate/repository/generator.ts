@@ -73,3 +73,8 @@ export const generateRepository = async (
     );
   }
 };
+
+export const repositoryGeneratorTests = {
+  getFunctionTemplate,
+  fillRepositoryNameIntoContent,
+};

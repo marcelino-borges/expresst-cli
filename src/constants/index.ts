@@ -166,4 +166,4 @@ export const TEMPLATES_PLACEHOLDERS = {
   middlewareFunction: "{{MIDDLEWARE_FUNCTION}}",
 };
 
-export const LIB_PROMPT_NAME = red("rest-express-cli");
+export const LIB_PROMPT_NAME = red("expresst-cli");
