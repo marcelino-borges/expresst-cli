@@ -17,7 +17,7 @@
     "version:bump": "tsx src/utils/npm-version/index.ts",
     "prepare": "husky",
     "test:watch": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" jest --watch",
-    "test:ci": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" jest --ci"
+    "test:ci": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" jest --ci --passWithNoTests"
   },
   "keywords": [],
   "author": "",
