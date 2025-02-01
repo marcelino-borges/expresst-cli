@@ -21,12 +21,6 @@ export const MAIN_COMMANDS: CommandInfo[] = [
     promptCallback: promptGenerateCommand,
   },
   {
-    command: "Format",
-    alias: "format (f)",
-    description: "Format all files with Prettier",
-    promptCallback: () => {},
-  },
-  {
     command: "Help",
     alias: "help",
     description: "See the options available by Expresst CLI",
