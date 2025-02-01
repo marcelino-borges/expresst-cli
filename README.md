@@ -1,17 +1,35 @@
 # EXPRESST CLI
 
+[![NPM Version](https://img.shields.io/npm/v/expresst-cli?color=blue&logo=nodedotjs&style=for-the-badge)](https://www.npmjs.com/package/expresst-cli)
+
+## Table of contents
+
+- [Description](#description)
+- [Use](#use)
+- [Tools](#tools)
+  - [Generate](#generate)
+
+## Description
+
 This library was developed to facilitate developers lives with a series of commands that can be executed from the terminal living in a given project directory.
 
 The goal here is to help start and grow a REST API made with [ExpressJS](https://expressjs.com) and Typescript.
 
 The developer should have freedom to use both classic functional programming approach and Clean Architecture.
 
-## Main Tools
+## Use
 
-| Tool     | Desciption                                                             |
-| -------- | ---------------------------------------------------------------------- |
-| Generate | Iteractively generates resources into a REST API                       |
-| Format   | Uses Prettier to format a whole codebase or specific directories/files |
+Open your terminal in any directory and run:
+
+```bash
+npx expresst-cli
+```
+
+## Tools
+
+| Tool     | Desciption                                       |
+| -------- | ------------------------------------------------ |
+| Generate | Iteractively generates resources into a REST API |
 
 ## Generate
 
@@ -27,6 +45,6 @@ The developer should have freedom to use both classic functional programming app
 | Middleware (m)  | Generates a middleware resource                                                            |
 | Resource (r)    | Generates a full resource, including controller, service, use-case, adapter and repository |
 
-## Release
+## License
 
-Soon this library will have an official release, but for now it's under development.
+[MIT](LICENSE)
