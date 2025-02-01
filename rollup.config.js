@@ -1,6 +1,7 @@
 // import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
+import copy from "rollup-plugin-copy";
 import { dts } from "rollup-plugin-dts";
 
 export default [
@@ -11,7 +12,13 @@ export default [
       file: "./dist/index.mjs",
       format: "esm",
     },
-    plugins: [typescript(), commonjs()],
+    plugins: [
+      typescript(),
+      commonjs(),
+      copy({
+        targets: [{ src: "src/assets", dest: "dist" }],
+      }),
+    ],
   },
 
   {

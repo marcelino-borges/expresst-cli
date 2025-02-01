@@ -58,79 +58,118 @@ export const CONTEXTS = {
 
 export const TEMPLATES_PATH = {
   serverEntry: {
-    originalPath: resolve(__dirname, "../templates/server-entry/index.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/server-entry/index.txt",
+    ),
     destinationPath: "/src/index.ts",
   },
   packageJson: {
-    originalPath: resolve(__dirname, "../templates/npm/packagejson.txt"),
+    originalPath: resolve(__dirname, "../assets/templates/npm/packagejson.txt"),
     destinationPath: "/package.json",
   },
   commitlint: {
-    originalPath: resolve(__dirname, "../templates/lint/commitlint.config.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/lint/commitlint.config.txt",
+    ),
     destinationPath: "/commitlint.config.cjs",
   },
   swaggerLoader: {
-    originalPath: resolve(__dirname, "../templates/swagger/loader.txt"),
+    originalPath: resolve(__dirname, "../assets/templates/swagger/loader.txt"),
     destinationPath: "/src/config/swagger/loader.ts",
   },
   swaggerYml: {
-    originalPath: resolve(__dirname, "../templates/swagger/yml.txt"),
+    originalPath: resolve(__dirname, "../assets/templates/swagger/yml.txt"),
     destinationPath: "/src/config/swagger/doc.yml",
   },
   tsconfig: {
-    originalPath: resolve(__dirname, "../templates/typescript/tsconfig.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/typescript/tsconfig.txt",
+    ),
     destinationPath: "/tsconfig.json",
   },
   huskyPreCommit: {
-    originalPath: resolve(__dirname, "../templates/husky/pre-commit.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/husky/pre-commit.txt",
+    ),
     destinationPath: "/.husky/pre-commit",
   },
   huskyCommitMsg: {
-    originalPath: resolve(__dirname, "../templates/husky/commit-msg.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/husky/commit-msg.txt",
+    ),
     destinationPath: "/.husky/commit-msg",
   },
   gitIgnore: {
-    originalPath: resolve(__dirname, "../templates/git/gitignore.txt"),
+    originalPath: resolve(__dirname, "../assets/templates/git/gitignore.txt"),
     destinationPath: "/.gitignore",
   },
   controllerWrapper: {
-    originalPath: resolve(__dirname, "../templates/controller/wrapper.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/controller/wrapper.txt",
+    ),
     destinationPath: "./src/controllers",
   },
   controllerFunction: {
-    originalPath: resolve(__dirname, "../templates/controller/function.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/controller/function.txt",
+    ),
     destinationPath: "./src/controllers",
   },
   middlewareWrapper: {
-    originalPath: resolve(__dirname, "../templates/middleware/wrapper.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/middleware/wrapper.txt",
+    ),
     destinationPath: "./src/middlewares",
   },
   middlewareFunction: {
-    originalPath: resolve(__dirname, "../templates/middleware/function.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/middleware/function.txt",
+    ),
     destinationPath: "./src/middlewares",
   },
   serviceFunction: {
-    originalPath: resolve(__dirname, "../templates/service/function.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/service/function.txt",
+    ),
     destinationPath: "./src/services",
   },
   useCaseFunction: {
-    originalPath: resolve(__dirname, "../templates/use-case/function.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/use-case/function.txt",
+    ),
     destinationPath: "./src/use-cases",
   },
   repositoryFunction: {
-    originalPath: resolve(__dirname, "../templates/repository/function.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/repository/function.txt",
+    ),
     destinationPath: "./src/repositories",
   },
   routerWrapper: {
-    originalPath: resolve(__dirname, "../templates/router/wrapper.txt"),
+    originalPath: resolve(__dirname, "../assets/templates/router/wrapper.txt"),
     destinationPath: "./src/routers",
   },
   routerImplementation: {
-    originalPath: resolve(__dirname, "../templates/router/function.txt"),
+    originalPath: resolve(__dirname, "../assets/templates/router/function.txt"),
     destinationPath: "./src/routers",
   },
   adapterFunction: {
-    originalPath: resolve(__dirname, "../templates/adapter/function.txt"),
+    originalPath: resolve(
+      __dirname,
+      "../assets/templates/adapter/function.txt",
+    ),
     destinationPath: "./src/adapters",
   },
 };
