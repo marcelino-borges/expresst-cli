@@ -9,8 +9,10 @@ export default [
     input: "src/index.ts",
     external: [],
     output: {
-      file: "./dist/index.mjs",
+      dir: "dist",
+      entryFileNames: "[name].mjs",
       format: "esm",
+      preserveModules: true,
     },
     plugins: [
       typescript(),
