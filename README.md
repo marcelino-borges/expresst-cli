@@ -25,6 +25,20 @@ Open your terminal in any directory and run:
 npx expresst-cli
 ```
 
+### Help commands
+
+To see the list with the main commands available:
+
+```bash
+npx expresst-cli help
+```
+
+To see the list with the GENERATE commands available:
+
+```bash
+npx expresst-cli help generate
+```
+
 ## Tools
 
 | Tool     | Desciption                                       |
