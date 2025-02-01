@@ -1,5 +1,5 @@
 export class LibError extends Error {
-  protected readonly cause: unknown;
+  public readonly cause: unknown;
 
   constructor(message: string, cause?: any) {
     super(message);

@@ -11,7 +11,7 @@ import { capitalizeFirstLetter } from "../../utils/strings";
  */
 export const handleForceCloseIfAny = (error: any) => {
   if (error instanceof Error && error.name === "ExitPromptError") {
-    console.log("👋 Cancelled, see you next time!");
+    console.log("Cancelled, see you next time! 👋👋👋");
   } else {
     throw error;
   }

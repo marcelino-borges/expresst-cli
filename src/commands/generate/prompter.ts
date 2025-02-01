@@ -24,6 +24,10 @@ const promptGenerateName = async () => {
   return selection;
 };
 
+const logInvalidCommand = () => {
+  log.error([CONTEXTS.generate], "Invalid command");
+};
+
 export var promptGenerateCommand = async (args?: string[]) => {
   try {
     let commandSelected: string | undefined;
@@ -36,7 +40,7 @@ export var promptGenerateCommand = async (args?: string[]) => {
     }
 
     if (!commandSelected) {
-      log.error([CONTEXTS.generate], "Invalid command");
+      logInvalidCommand();
       return;
     }
 
@@ -47,7 +51,7 @@ export var promptGenerateCommand = async (args?: string[]) => {
     );
 
     if (!selectedCommand) {
-      log.error([CONTEXTS.generate], "Invalid command");
+      logInvalidCommand();
       return;
     }
 
@@ -55,4 +59,8 @@ export var promptGenerateCommand = async (args?: string[]) => {
   } catch (error) {
     handleForceCloseIfAny(error);
   }
+};
+
+export const tests = {
+  promptGenerateName,
 };
