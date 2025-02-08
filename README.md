@@ -41,13 +41,13 @@ npx expresst-cli help generate
 
 ## Tools
 
-| Tool     | Desciption                                       |
+| Tool     | Description                                       |
 | -------- | ------------------------------------------------ |
 | Generate | Iteractively generates resources into a REST API |
 
 ## Generate
 
-| Command (alias) | Desciption                                                                                 |
+| Command (alias) | Description                                                                                 |
 | --------------- | ------------------------------------------------------------------------------------------ |
 | Initialize (i)  | Generates a new Express entry file                                                         |
 | Repository (re) | Generates a repository resource                                                            |
